@@ -41,7 +41,7 @@ namespace CrudCustomer.Controllers
         {
             try
             {
-                if (id < 0) { BadRequest($"Invalid 'Id', must be greater than 0. Current value 'id': {id}"); }
+                if (id < 0) { return BadRequest($"Invalid 'Id', must be greater than 0. Current value 'id': {id}"); }
 
                 var customers = await _customerService.GetByIdAsync(id);
 
@@ -59,6 +59,7 @@ namespace CrudCustomer.Controllers
             try
             {
                 if (customer == null) { return BadRequest("Cannot insert an empty record"); }
+                if (string.IsNullOrWhiteSpace(customer.FirstName) || string.IsNullOrWhiteSpace(customer.LastName) || string.IsNullOrWhiteSpace(customer.Email)) { return BadRequest("Cannot insert an empty record"); }
 
                 var customers = await _customerService.CreateAsync(customer);
 
@@ -95,7 +96,7 @@ namespace CrudCustomer.Controllers
         {
             try
             {
-                if (id < 0) { BadRequest($"Invalid 'Id', must be greater than 0. Current value 'id': {id}"); }
+                if (id < 0) { return BadRequest($"Invalid 'Id', must be greater than 0. Current value 'id': {id}"); }
 
                 var customers = await _customerService.DeleteAsync(id);
 

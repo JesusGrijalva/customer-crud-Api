@@ -4,3 +4,9 @@
 
 /CrudCustomer/bin/Debug/netcoreapp3.1
 /CrudCustomer/obj
+/.vs/CrudCustomer
+/.vs/customer-crud-Api/v17
+/.vs/ProjectEvaluation
+/.vs/VSWorkspaceState.json
+/CrudCustomer.Tests/bin/Debug/netcoreapp3.1
+/CrudCustomer.Tests/obj

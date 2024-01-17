@@ -19,8 +19,9 @@ namespace CrudCustomer.Data
                    .RuleFor(c => c.FirstName, f => f.Person.FirstName)
                    .RuleFor(c => c.LastName, f => f.Person.LastName)
                    .RuleFor(c => c.Email, (f, c) => f.Internet.Email(c.FirstName, c.LastName))
-                   .RuleFor(c => c.Created, f => DateTimeOffset.Now.AddMonths(-f.Random.Int(1, 12)))
-                   .RuleFor(c => c.Updated, f => DateTimeOffset.Now.AddDays(-f.Random.Int(1, 7)));
+                   .RuleFor(c => c.Created, f => DateTimeOffset.Now.AddMonths(-3))
+                   .RuleFor(c => c.Updated, f => DateTimeOffset.Now.AddMinutes(-f.Random.Int(1, 21600)));
+                   ;
 
                     var customers = faker.Generate(160);
 
